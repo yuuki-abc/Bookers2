@@ -3,19 +3,16 @@ class BooksController < ApplicationController
   def top
   end
 
-  def new
+  def users
+    @users = User.all
   end
 
-  def create
+  def user_show
+    @user = User.find(params[:id])
   end
 
-  def index
-  end
-
-  def show
-  end
-
-  def destroy
+  def user_edit
+    @user = User.find(params[:id])
   end
 
 end
