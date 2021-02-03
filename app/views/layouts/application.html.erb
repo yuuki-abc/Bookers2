@@ -9,7 +9,43 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <!--yukikome => 全体(body内以外)のhtmlの記述が出来るファイル-->
+
   <body>
+
+    <li>
+        <%= link_to "Home", destroy_user_session_path, method: :delete %>
+    </li>
+    <li>
+        <%= link_to "Home", new_user_registration_path %>
+    </li>
+
+    <% if user_signed_in? %>
+    <!--yukikome => ログイン中ならば-->
+      <li>
+        <%= link_to "User", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to "Books", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to "logout", destroy_user_session_path, method: :delete %>
+        <!--yukikome => method: :deleteでdestroy_user_session_pathへルーティング-->
+        <!--させることでログアウトしてくれる-->
+        <!--また、ログアウト後はトップページ(ルートページ？)に遷移してくれる-->
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "About", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "sign up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "login", new_user_session_path %>
+      </li>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
