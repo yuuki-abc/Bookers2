@@ -15,4 +15,13 @@ class BooksController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  private
+
+  def book_params
+    # 命名規則は、モデル名_paramsが一般的。
+    # paramsメソッドにはフォームから送られてきたデータが入る。
+    params.require(:book).permit(:title, :body)
+  end
+
+
 end

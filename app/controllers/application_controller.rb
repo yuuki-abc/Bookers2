@@ -18,5 +18,4 @@ class ApplicationController < ActionController::Base
   # ストロングパラメーターみたいなもの
   # メールアドレスとパスワードの許可は元からの機能につき、実装済み？
 
-
 end

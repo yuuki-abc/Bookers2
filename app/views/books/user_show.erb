@@ -2,3 +2,5 @@
 <%= @user.name %>
 
 <%= link_to "user edit",  user_edit_path(@user) %>
+
+<%= render 'books/side_menu', user: @user %>
