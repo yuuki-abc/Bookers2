@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   # yukikome => ユーザ名（name）のデータ操作を許可
   # ストロングパラメーターみたいなもの
-  # メールアドレスとパスワードの許可はいらないのかな？
+  # メールアドレスとパスワードの許可は元からの機能につき、実装済み？
 
 
 end
