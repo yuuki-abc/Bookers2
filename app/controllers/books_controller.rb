@@ -25,6 +25,12 @@ class BooksController < ApplicationController
     redirect_to user_path(user)
   end
 
+  def books
+    @user = current_user
+    @book = Book.new
+    @books = Book.all
+  end
+
   def book_new
     @book = Book.new(book_params)
     @book.user_id = current_user.id
