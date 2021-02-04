@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get 'users' => 'books#users', as: 'users'
   get 'users/:id' => 'books#user_show', as: 'user'
   get 'users/:id/edit' => 'books#user_edit', as: 'user_edit'
+  # patch 'users' => 'books#user_update', as: 'user_update'
+  patch 'users/:id' => 'books#user_update', as: 'user_update'
 
 end
