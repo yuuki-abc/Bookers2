@@ -12,5 +12,10 @@ Rails.application.routes.draw do
 
   patch 'users/:id' => 'books#user_update', as: 'user_update'
   post 'users/:id' => 'books#book_new', as: 'book_new'
+  get 'books/:id' => 'books#book_view', as: 'book_view'
+  get 'books/:id/edit' => 'books#book_edit', as: 'book_edit'
+  patch 'books/:id' => 'books#book_update', as: 'book_update'
+  delete 'books/:id' => 'books#book_delete', as: 'book_delete'
+
 
 end

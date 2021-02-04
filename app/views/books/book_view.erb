@@ -1,0 +1,21 @@
+        <!--<#%= link_to "destroy", book_path(book), method: :delete, data: { confirm: '本当に削除しますか？' }  %>-->
+<div>
+<%= link_to user_path(@book.user) do %>
+<%= @book.user.name %>
+<% end %>
+</div>
+
+<div>
+<%= link_to book_view_path(@book) do %>
+<%= @book.title %>
+<% end %>
+</div>
+
+<div>
+<%= @book.body %>
+</div>
+
+<div>
+<%= link_to 'edit', book_edit_path(@book) %>
+<%= link_to 'delete', book_delete_path(@book) %>
+</div>

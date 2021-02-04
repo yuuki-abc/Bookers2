@@ -30,6 +30,27 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     @book.save
     redirect_to user_path
+    # yukikome => 要検証 IDの指定が無い
+  end
+
+  def book_view
+     @book = Book.find(params[:id])
+  end
+
+  def book_edit
+    @book = Book.find(params[:id])
+  end
+
+   def book_update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to user_path(book.user.id)
+  end
+
+  def book_delete
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to user_path(book.user.id)
   end
 
   private

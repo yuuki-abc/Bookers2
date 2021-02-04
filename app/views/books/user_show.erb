@@ -3,13 +3,17 @@
 <%= render 'books/new_book', book: @book %>
 
 <% @books.each do |book| %>
+
     <div><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></div>
+
+    <%= link_to users_path do %>
     <div><%= book.user.name %></div>
+    <% end %>
+
+    <%= link_to book_view_path do %>
     <div><%= book.title %></div>
+    <% end %>
+
     <div><%= book.body %></div>
 
-        <!--<#%= link_to 'edit', edit_book_path(book) %>-->
-        <!--<#%= link_to "destroy", book_path(book), method: :delete, data: { confirm: '本当に削除しますか？' }  %>-->
-      </tr>
-
-      <% end %>
+<% end %>
