@@ -19,6 +19,7 @@ class BooksController < ApplicationController
     user = User.find(params[:id])
     user.update(user_params)
     # yukikome => 空のカラムにアップデートをあてた時の挙動は？
+    redirect_to user_path(user)
   end
 
 
