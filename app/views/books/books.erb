@@ -1,6 +1,8 @@
 <%= render 'books/user_info', user: @user %>
 <%= render 'books/new_book', book: @book %>
 
+
+
 <% @books.each do |book| %>
 
   <%= link_to user_path(book.user) do %>
