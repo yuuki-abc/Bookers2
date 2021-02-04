@@ -1,2 +1,15 @@
 <h1>ユーザー詳細ページ</h1>
-<%= render 'books/side_menu', user: @user %>
+<%= render 'books/user_info', user: @user %>
+<%= render 'books/new_book', book: @book %>
+
+<% @books.each do |book| %>
+
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+        <!--<td><#%= link_to 'show', book_path(book) %></td>-->
+        <!--<td><#%= link_to 'edit', edit_book_path(book) %></td>-->
+        <!--<td><#%= link_to "destroy", book_path(book), method: :delete, data: { confirm: '本当に削除しますか？' }  %></td>-->
+      </tr>
+
+      <% end %>

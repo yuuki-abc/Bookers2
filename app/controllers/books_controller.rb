@@ -9,6 +9,9 @@ class BooksController < ApplicationController
 
   def user_show
     @user = User.find(params[:id])
+    # @user = Book.find(params[:id])
+    @book = Book.new
+    @books= Book.where(user_id: @user.id)
   end
 
   def user_edit
@@ -22,6 +25,12 @@ class BooksController < ApplicationController
     redirect_to user_path(user)
   end
 
+  def book_new
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    @book.save
+    redirect_to user_path
+  end
 
   private
 
@@ -31,5 +40,8 @@ class BooksController < ApplicationController
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
+  def book_params
+    params.require(:book).permit(:title, :body)
+  end
 
 end
