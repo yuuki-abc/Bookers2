@@ -5,52 +5,68 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <!--yukikome => 全体(body内以外)のhtmlの記述が出来るファイル-->
-
   <body>
 
-    <div>
-    <li>
-        <%= link_to "Bookers", root_path %>
-    </li>
+    <nav class="navbar navbar-expand navbar-dark bg-dark mb-5">
+      <div class="container">
+        <a class="navbar-brand" href="/">Bookers</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+
+            <% if user_signed_in? %>
+
+              <li class="nav-item">
+                <%= link_to "Home", user_path(current_user) %>
+              </li>
+
+              <li class="nav-item ml-4">
+                <%= link_to "Users", users_path %>
+              </li>
+
+              <li class="nav-item ml-4">
+                <%= link_to "Books", books_path %>
+              </li>
+
+              <li class="nav-item ml-4">
+                <%= link_to "logout", destroy_user_session_path, method: :delete %>
+              </li>
+
+            <% else %>
+
+              <li class="nav-item">
+                <%= link_to "Home", root_path %>
+              </li>
+
+              <li class="nav-item ml-4">
+                <%= link_to "About", about_path %>
+              </li>
+
+              <li class="nav-item ml-4">
+                <%= link_to "sign up", new_user_registration_path %>
+              </li>
+
+              <li class="nav-item ml-4">
+                <%= link_to "login", new_user_session_path %>
+              </li>
+
+            <% end %>
+
+          </ul>
+
+        </div> <!--<div class="collapse navbar-collapse">-->
+      </div> <!--containerの閉じ-->
+    </nav>
+
+    <div class="container">
+    <%= yield %>
     </div>
 
-    <% if user_signed_in? %>
-    <!--yukikome => ログイン中ならば-->
-      <li>
-        <%= link_to "Home", user_path(current_user.id) %>
-      </li>
-      <li>
-        <%= link_to "User", users_path %>
-      </li>
-      <li>
-        <%= link_to "Books",books_path %>
-      </li>
-      <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
-        <!--yukikome => method: :deleteでdestroy_user_session_pathへルーティング-->
-        <!--させることでログアウトしてくれる-->
-        <!--また、ログアウト後はトップページ(ルートページ？)に遷移してくれる-->
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-        <%= link_to "About", about_path %>
-      </li>
-      <li>
-        <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "login", new_user_session_path %>
-      </li>
-    <% end %>
-
-    <%= yield %>
   </body>
+
 </html>

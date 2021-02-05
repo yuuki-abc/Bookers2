@@ -2,8 +2,8 @@
 
 class ApplicationController < ActionController::Base
 
-  before_action :authenticate_user!,except: [:top]
-  before_action :authenticate_user!,except: [:about] # yukikome => この2つを一列でかけるのでは？
+  # before_action :authenticate_user!,except: [:top]
+  # before_action :authenticate_user!,except: [:about] # yukikome => この2つを一列でかけるのでは？
   # yukikome => before_actionメソッドは、
   # このコントローラが動作する前に実行される
   # :authenticate_user!はログイン認証されていなければ、
@@ -13,6 +13,14 @@ class ApplicationController < ActionController::Base
 
   # yukikome => デバイス機能を利用する前に、メソッドconfigure_permitted_parametersを
   # 呼び出す
+
+  def after_sign_in_path_for(resource)
+    user_path(current_user) # ログイン後に遷移するpathを設定
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path # ログアウト後に遷移するpathを設定
+  end
 
   protected
   # yukikome => ここ以外のコントローラーでも呼べる

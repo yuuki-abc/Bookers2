@@ -1,5 +1,11 @@
-<h1>トップページです</h1>
+<div class="display-4 text-center mb-5">
+    ようこそ、<i class="fas fa-book-open"></i>Bookersへ
+</div>
 
-<%= link_to "sign up",  new_user_registration_path %>
-<%= link_to "sign in",  new_user_session_path %>
-<%= link_to "users",  users_path %>
+
+
+
+<div class="d-flex align-items-center"><%= link_to "sign up",  new_user_registration_path, class: 'btn btn-success w-25 mb-3 mx-auto', role: 'button' %></div>
+<div class="d-flex align-items-center"><%= link_to "sign in",  new_user_session_path, class: 'btn btn-primary w-25 mx-auto', role: 'button' %></div>
+
+<!--yukikome => 後で考える-->
