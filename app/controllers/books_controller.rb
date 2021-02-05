@@ -74,7 +74,7 @@ class BooksController < ApplicationController
     redirect_to user_path(book.user.id)
   end
 
-  # デバッグ用
+  # テスト用
   # def user_delete
   #   user = User.find(params[:id])
   #   user.destroy
@@ -84,8 +84,6 @@ class BooksController < ApplicationController
   private
 
   def user_params
-    # 命名規則は、モデル名_paramsが一般的。
-    # paramsメソッドにはフォームから送られてきたデータが入る。
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
 

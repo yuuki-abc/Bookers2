@@ -18,19 +18,26 @@
 @import 'font-awesome';
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 14px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
 
-  h1 {
-    font-size: 30px;
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 26px;
+    }
+    h3 {
+      font-size: 22px;
+    }
+
+    #error_explanation {
+      color: red;
+      ul {
+        list-style-position: inside;
+      }
+    }
   }
-  h2 {
-    font-size: 26px;
-  }
-  h3 {
-    font-size: 22px;
-  }
-}
 
