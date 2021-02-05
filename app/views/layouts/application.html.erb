@@ -22,37 +22,53 @@
             <% if user_signed_in? %>
 
               <li class="nav-item">
-                <%= link_to "Home", user_path(current_user) %>
+                <%= link_to user_path(current_user) do %>
+                  <i class="fas fa-home mr-1"></i>Home
+                <% end %>
               </li>
 
               <li class="nav-item ml-4">
-                <%= link_to "Users", users_path %>
+                <%= link_to users_path do %>
+                  <i class="fas fa-users mr-1"></i>Users
+                <% end %>
               </li>
 
               <li class="nav-item ml-4">
-                <%= link_to "Books", books_path %>
+                <%= link_to books_path do %>
+                  <i class="fas fa-book mr-1"></i>Books
+                <% end %>
               </li>
 
               <li class="nav-item ml-4">
-                <%= link_to "logout", destroy_user_session_path, method: :delete %>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>logout
+                <% end %>
               </li>
 
             <% else %>
 
               <li class="nav-item">
-                <%= link_to "Home", root_path %>
+                <%= link_to root_path do %>
+                  <i class="fas fa-home mr-1"></i>Home
+                <% end %>
               </li>
 
               <li class="nav-item ml-4">
-                <%= link_to "About", about_path %>
+                <%= link_to about_path do %>
+                  <i class="far fa-comment mr-1"></i>about
+                <% end %>
               </li>
 
               <li class="nav-item ml-4">
-                <%= link_to "sign up", new_user_registration_path %>
+                <%= link_to new_user_registration_path do %>
+                   <i class="fas fa-user-plus mr-1"></i>sign up
+                <% end %>
               </li>
 
               <li class="nav-item ml-4">
-                <%= link_to "login", new_user_session_path %>
+                <%= link_to new_user_session_path do %>
+                   <i class="fas fa-sign-in-alt mr-1"></i>login
+                <% end %>
               </li>
 
             <% end %>
@@ -64,7 +80,7 @@
     </nav>
 
     <div class="container">
-    <%= yield %>
+      <%= yield %>
     </div>
 
   </body>

@@ -1,15 +1,23 @@
 <h1>User info</h1>
 
-<div>
-    <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+<div class="col-8">
+
+  <div class="mb-4">
+      <%= attachment_image_tag user, :profile_image, :fill, 80, 80, fallback: "no_image.jpg"%>
+  </div>
+
+  <div class="pt-2 pb-2 border-top font-weight-bold">
+  name  :  <%= user.name %>
+  </div>
+
+  <div class="pt-2 border-top font-weight-bold">
+  introduction  :  <%= user.introduction %>
+  </div>
+
+  <%= link_to user_edit_path(user), class: 'btn btn-outline-secondary w-100 mb-3 mt-3' do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+
 </div>
 
-<div>
-<%= user.name %>
-</div>
-
-<div>
-<%= user.introduction %>
-</div>
-
-<%= link_to "user edit",  user_edit_path(user) %>
+<div class="col-4"></div>

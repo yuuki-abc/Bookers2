@@ -5,6 +5,9 @@ class BooksController < ApplicationController
 
   def users
     @users = User.all
+    @user = User.find(current_user.id)
+    # @user = Book.find(params[:id])
+    @book = Book.new
   end
 
   def user_show

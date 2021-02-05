@@ -1,23 +1,26 @@
-<h2>New book</h2>
-
 <%= form_with model:book, url: book_new_path, local:true do |f| %>
 
-  <div>
-    <label for="inputTitle">Title</label>
-  </div>
-  <div>
+<h1 class="mt-5">New book</h1>
+
+<div class="col-8">
+
+  <div class="pt-2 pb-2 font-weight-bold">
+    <div><label for="inputTitle">Title</label></div>
     <%= f.text_field :title, id:"inputTitle", placeholder:"本のタイトル"%>
   </div>
 
-  <div>
-    <label for="inputBody">Opinion</label>
-  </div>
-  <div>
+  <div class="pt-2 pb-2 font-weight-bold">
+    <div><label for="inputBody">Opinion</label></div>
     <%= f.text_area :body, id:"inputBody", placeholder:"本の感想"%>
   </div>
 
-  <div>
-    <%= f.submit "Create Book" %>
+
+  <div class="pt-2 pb-2 font-weight-bold">
+      <%= f.submit 'Create Book', class: "btn btn-success" %>
   </div>
+
+</div>
+
+<div class="col-4"></div>
 
 <% end %>
