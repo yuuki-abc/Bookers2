@@ -25,7 +25,7 @@
                         <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
                     </td>
 
-                    <td>  <%= link_to book_view_path(book) do %>
+                    <td><%= link_to book_view_path(book) do %>
                     <%= book.title %>
                     <% end %></td>
 

@@ -1,21 +1,46 @@
-        <!--<#%= link_to "destroy", book_path(book), method: :delete, data: { confirm: '本当に削除しますか？' }  %>-->
-<div>
-<%= link_to user_path(@book.user) do %>
-<%= @book.user.name %>
-<% end %>
+<div class="error">
+
+<div class="row">
+    <div class="col-4">
+        <div><%= render 'books/user_info', user: @user %></div>
+        <div><%= render 'books/new_book', book: @book %></div>
+    </div>
+
+    <div class="col-8">
+<!--ここから-->
+<h1>Book detail</h1>
+
+  <table class="table">
+
+  <td><%= attachment_image_tag @book_show.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
+
+
+  <div><%= link_to user_path(@book_show.user) do %>
+  <%= @book_show.user.name %>
+  <% end %></div>
+  </td>
+
+  <td>
+  <%= link_to book_view_path(@book_show) do %>
+  <%= @book_show.title %>
+  <% end %>
+  </td>
+
+  <td>
+  <%= @book_show.body %>
+  </td>
+
+
+  <% if @book_show.user == current_user %>
+    <td><%= link_to 'edit', book_edit_path(@book_show), class: 'btn btn-success mr-4' %>
+    <%= link_to 'delete', book_delete_path(@book_show), class: 'btn btn-danger', method: :delete %></td>
+  <% end %>
+
+</table>
+<!--ここまで-->
+  </div>
 </div>
 
-<div>
-<%= link_to book_view_path(@book) do %>
-<%= @book.title %>
-<% end %>
-</div>
 
-<div>
-<%= @book.body %>
-</div>
-
-<div>
-<%= link_to 'edit', book_edit_path(@book) %>
-<%= link_to 'delete', book_delete_path(@book) %>
-</div>
+<!--< %= link_to "sign in",  new_user_session_path, class: 'btn btn-primary w-25 mb-3 mx-auto', role: 'button' %>-->
+<!--< %= link_to "sign up",  new_user_registration_path, class: 'btn btn-success w-25 mx-auto', role: 'button' %>-->

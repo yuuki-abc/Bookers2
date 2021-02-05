@@ -1,31 +1,23 @@
+<div class="col-4 mx-auto">
 <h1>User info</h1>
 
 <%= form_with model:@user, url: user_update_path(@user), local:true do |f| %>
 
-  <div>
-    <label for="inputName">Name</label>
-  </div>
-  <div>
-    <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
-  </div>
+  <div class="mt-5"><label for="inputName">Name</label></div>
+  <%= f.text_field :name, autofocus: true, id:"inputName", class:"w-100", placeholder:"名前"%>
 
-  <div>
-    <label for="inputImage">image</label>
-  </div>
-  <div>
-    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-  </div>
 
-  <div>
-    <label for="inputIntroduction">introduction</label>
-  </div>
-  <div>
-    <%= f.text_area :introduction, id:"inputIntroduction", placeholder:"紹介文"%>
-  </div>
+  <div class="mt-5"><label for="inputImage">image</label></div>
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+
+  <div class="mt-5"><label for="inputIntroduction">introduction</label></div>
+  <%= f.text_area :introduction, id:"inputIntroduction", class:"w-100", placeholder:"紹介文"%>
 
 
   <div>
-    <%= f.submit "Update User" %>
+    <%= f.submit 'Update User', class: "btn btn-secondary mt-3" %>
   </div>
 
 <% end %>
+
+</div>

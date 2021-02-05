@@ -1,27 +1,23 @@
-<h1>Editing Book</h1>
+<div class="col-4 mx-auto">
+  <h1>Editing Book</h1>
 
-<%= form_with model:@book, url: book_update_path(@book), local:true do |f| %>
+  <%= form_with model:@book, url: book_update_path(@book), local:true do |f| %>
 
-  <div>
-    <label for="inputTitle">Title</label>
-  </div>
-  <div>
-    <%= f.text_field :title, id:"inputTitle", placeholder:"本のタイトル"%>
-  </div>
+    <div class="mt-5"><label for="inputTitle">Title</label></div>
+    <%= f.text_field :title, id:"inputTitle", class:"w-100", placeholder:"本のタイトル"%>
 
-  <div>
-    <label for="inputBody">Opinion</label>
-  </div>
-  <div>
-    <%= f.text_area :body, id:"inputBody", placeholder:"本の感想"%>
-  </div>
 
-  <div>
-    <%= f.submit "Edit Book" %>
-  </div>
+    <div class="mt-5"><label for="inputBody">Opinion</label></div>
+    <%= f.text_area :body, id:"inputBody", class:"w-100 mb-4", placeholder:"本の感想"%>
 
- <% end %>
 
- <%= link_to 'Show', user_path(@book.user.id) %>
-<!--<#%= link_to 'Back', books_path %>-->
+    <div>
+      <%= f.submit "Edit Book", class: "btn btn-success mb-4"  %>
+    </div>
 
+  <% end %>
+
+  <%= link_to 'Show', book_view_path(@book) %> |
+  <%= link_to 'Back', user_path(@book.user) %>
+
+</div>
