@@ -20,5 +20,8 @@ Rails.application.routes.draw do
   patch 'books/:id' => 'books#book_update', as: 'book_update'
   delete 'books/:id' => 'books#book_delete', as: 'book_delete'
 
+  # デバッグ用
+  # delete 'users/:id' => 'books#user_delete', as: 'user_delete'
+
 
 end

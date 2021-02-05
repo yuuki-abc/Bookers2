@@ -74,6 +74,13 @@ class BooksController < ApplicationController
     redirect_to user_path(book.user.id)
   end
 
+  # デバッグ用
+  # def user_delete
+  #   user = User.find(params[:id])
+  #   user.destroy
+  #   redirect_to root_path
+  # end
+
   private
 
   def user_params
