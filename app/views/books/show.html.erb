@@ -1,0 +1,22 @@
+<div><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></div>
+
+<div>
+<%= link_to user_path(@book.user) do %>
+<%= @book.user.name %>
+<% end %>
+</div>
+
+<div>
+<%= link_to book_path(@book) do %>
+<%= @book.title %>
+<% end %>
+</div>
+
+<div>
+<%= @book.body %>
+</div>
+
+<div>
+<%= link_to 'edit', edit_book_path(@book) %>
+<%= link_to 'delete', book_path(@book), method: :delete %>
+</div>

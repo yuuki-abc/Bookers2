@@ -5,4 +5,7 @@ class Book < ApplicationRecord
   # yukikome =>
   # こちらのカラムにuser_idという名前をつければ、userのidとアソシエーションされる？
 
+  validates :title, presence: true
+  validates :body, presence: true
+
 end

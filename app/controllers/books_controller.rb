@@ -11,7 +11,10 @@ class BooksController < ApplicationController
     @user = User.find(params[:id])
     # @user = Book.find(params[:id])
     @book = Book.new
-    @books= Book.where(user_id: @user.id)
+    @books = Book.where(user_id: @user.id)
+    # @books = user.book.reverse_order
+    # @books = @user.books.page(params[:page]).reverse_order
+    # yukikome => ↑の記述がいいかも？ここ改善
   end
 
   def user_edit
@@ -32,11 +35,17 @@ class BooksController < ApplicationController
   end
 
   def book_new
+    @user = User.find(current_user.id)
+    @books = Book.all
+
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @book.save
-    redirect_to user_path
-    # yukikome => 要検証 IDの指定が無い
+    if @book.save
+      redirect_to user_path(@book.user_id)
+      # yukikome => 要検証 IDの指定が無い ※ 対応済み
+    else
+      render action: :books
+    end
   end
 
   def book_view

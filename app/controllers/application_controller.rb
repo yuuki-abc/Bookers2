@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!,except: [:top]
+  before_action :authenticate_user!,except: [:about] # yukikome => この2つを一列でかけるのでは？
   # yukikome => before_actionメソッドは、
   # このコントローラが動作する前に実行される
   # :authenticate_user!はログイン認証されていなければ、
