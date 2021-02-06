@@ -15,5 +15,4 @@ class User < ApplicationRecord
 
   validates :introduction, length: {maximum: 50}
   # 最大50文字
-
 end
