@@ -1,20 +1,19 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise  :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :validatable
 
-        # yukikome = >
-        # :database_authenticatable（パスワードの正確性を検証）
-        # :registerable（ユーザ登録や編集、削除）
-        # :recoverable（パスワードをリセット）
-        # :rememberable（ログイン情報を保存）
-        # :validatable（emailのフォーマットなどのバリデーション）
+  has_many :books, dependent: :destroy
+  # yukikome => テーブル名 booksを登録
 
-         has_many :books, dependent: :destroy
-        # yukikome => テーブル名 booksを登録
+  attachment :profile_image
+  # yukikome => モデルに、画像アップ用のメソッド（attachment）を追加
 
-        attachment :profile_image
-        # yukikome => モデルに、画像アップ用のメソッド（attachment）を追加
+  validates :user_name, :uniqueness => true, :length => {in: 2..20}
+  # 重複禁止&2~20字以内
+
+  validates :introduction, length: {maximum: 50}
+  # 最大50文字
 
 end
