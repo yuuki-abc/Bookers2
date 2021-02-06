@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  
+
   root 'books#top'
   devise_for :users
-  # yukikome => deviseを使用する際にURLとしてusersを含むことを示している
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # resources :books, only: [:new, :create, :index, :show, :destroy]
   get 'about' => 'books#about', as: 'about'
@@ -20,8 +17,5 @@ Rails.application.routes.draw do
   get 'books/:id/edit' => 'books#book_edit', as: 'book_edit'
   patch 'books/:id' => 'books#book_update', as: 'book_update'
   delete 'books/:id' => 'books#book_delete', as: 'book_delete'
-
-  # テスト
-  # delete 'users/:id' => 'books#user_delete', as: 'user_delete'
 
 end

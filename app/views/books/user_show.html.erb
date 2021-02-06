@@ -20,7 +20,7 @@
                 <% @books.each do |book| %>
                 <tr>
                     <td>
-                        <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg"%></div>
+                        <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %></div>
                     </td>
 
                     <td><%= link_to book_view_path(book) do %>
@@ -35,6 +35,3 @@
 
     </div>
 </div>
-
-<!--テスト-->
-<!--<#%= link_to 'このユーザーを削除する', user_delete_path(@user), method: :delete %>-->

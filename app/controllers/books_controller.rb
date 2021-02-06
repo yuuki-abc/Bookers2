@@ -63,11 +63,10 @@ class BooksController < ApplicationController
 
   def book_delete
     book = Book.find(params[:id])
-    identification(book.user)
     if book.destroy
       redirect_to user_path(book.user.id), notice: "deleted successfully"
     else
-       redirect_to user_path(book.user.id), alert: "error delete"
+      redirect_to user_path(book.user.id), alert: "error delete"
     end
   end
 
