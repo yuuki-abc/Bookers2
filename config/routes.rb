@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'books#top'
   devise_for :users
   # yukikome => deviseを使用する際にURLとしてusersを含むことを示している
@@ -22,6 +23,5 @@ Rails.application.routes.draw do
 
   # テスト
   # delete 'users/:id' => 'books#user_delete', as: 'user_delete'
-
 
 end
