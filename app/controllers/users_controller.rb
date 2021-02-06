@@ -22,16 +22,16 @@ class UsersController < ApplicationController
       redirect_to user_path(user), alert: "error update"
     end
   end
-  
+
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
-  
+
   def identification(user)
     unless user == current_user
-      redirect_to user_path(current_user), alert: "this page cannot be edited"
+      redirect_to user_path(current_user), alert: "Not authorized"
     end
   end
 

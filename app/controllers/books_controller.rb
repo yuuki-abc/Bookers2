@@ -37,6 +37,7 @@ class BooksController < ApplicationController
 
   def destroy
     book = Book.find(params[:id])
+    identification(book.user)
     if book.destroy
       redirect_to user_path(book.user.id), notice: "deleted successfully"
     else
@@ -52,7 +53,7 @@ class BooksController < ApplicationController
 
   def identification(user)
     unless user == current_user
-      redirect_to user_path(current_user), alert: "this page cannot be edited"
+      redirect_to user_path(current_user), alert: "Not authorized"
     end
   end
 
