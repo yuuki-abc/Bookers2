@@ -5,7 +5,6 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
 
   has_many :books, dependent: :destroy
-  # yukikome => テーブル名 booksを登録
 
   attachment :profile_image
   # yukikome => モデルに、画像アップ用のメソッド（attachment）を追加
