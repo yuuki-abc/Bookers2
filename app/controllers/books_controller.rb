@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     book = Book.new(book_params)
     book.user_id = current_user.id
     if book.save
-      redirect_to user_path(book.user_id), notice: "successful creation"
+      redirect_to book_path(book), notice: "successfully creation"
     else
       @error_message = book
       render action: :books
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     identification(book.user)
     if book.update(book_params)
-      redirect_to user_path(book.user.id), notice: "successful update"
+      redirect_to user_path(book.user.id), notice: "successfully update"
     else
       redirect_to user_path(book.user.id), alert: "error update"
     end

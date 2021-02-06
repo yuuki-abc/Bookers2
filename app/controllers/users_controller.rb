@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     identification(user)
     if user.update(user_params)
-      redirect_to user_path(user), notice: "successful update"
+      redirect_to user_path(user), notice: "successfully update"
     else
       redirect_to user_path(user), alert: "error update"
     end
