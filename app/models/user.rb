@@ -10,7 +10,7 @@ class User < ApplicationRecord
   attachment :profile_image
   # yukikome => モデルに、画像アップ用のメソッド（attachment）を追加
 
-  validates :user_name, :uniqueness => true, :length => {in: 2..20}
+  validates :name, :uniqueness => true, :length => {in: 2..20}
   # 重複禁止&2~20字以内
 
   validates :introduction, length: {maximum: 50}

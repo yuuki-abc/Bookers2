@@ -17,8 +17,11 @@ class BooksController < ApplicationController
 
   def user_update
     user = User.find(params[:id])
-    user.update(user_params)
-    redirect_to user_path(user)
+    if user.update(user_params)
+      redirect_to user_path(user), notice: "successful update"
+    else
+      redirect_to user_path(user), alert: "error update"
+    end
   end
 
   def books
@@ -32,7 +35,7 @@ class BooksController < ApplicationController
     book = Book.new(book_params)
     book.user_id = current_user.id
     if book.save
-      redirect_to user_path(book.user_id)
+      redirect_to user_path(book.user_id), notice: "successful creation"
     else
       @error_message = book
       render action: :books
@@ -47,16 +50,22 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-   def book_update
+  def book_update
     book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to user_path(book.user.id)
+    if book.update(book_params)
+      redirect_to user_path(book.user.id), notice: "successful update"
+    else
+      redirect_to user_path(book.user.id), alert: "error update"
+    end
   end
 
   def book_delete
     book = Book.find(params[:id])
-    book.destroy
-    redirect_to user_path(book.user.id)
+    if book.destroy
+      redirect_to user_path(book.user.id), notice: "deleted successfully"
+    else
+       redirect_to user_path(book.user.id), alert: "error delete"
+    end
   end
 
   private
