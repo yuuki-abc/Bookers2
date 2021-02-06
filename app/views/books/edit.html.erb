@@ -1,7 +1,7 @@
 <div class="col-4 mx-auto">
   <h1>Editing Book</h1>
 
-  <%= form_with model:@book, url: book_update_path(@book), local:true do |f| %>
+  <%= form_with model:@book, url: book_path(@book), local:true do |f| %>
 
     <div class="mt-5"><label for="inputTitle">Title</label></div>
     <%= f.text_field :title, id:"inputTitle", class:"w-100", placeholder:"本のタイトル"%>
@@ -17,7 +17,7 @@
 
   <% end %>
 
-  <%= link_to 'Show', book_view_path(@book) %> |
+  <%= link_to 'Show', book_path(@book) %> |
   <%= link_to 'Back', user_path(@book.user) %>
 
 </div>

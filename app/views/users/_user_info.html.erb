@@ -19,7 +19,7 @@
   <!--< % end %>-->
 
   <% if user == current_user %>
-    <%= link_to user_edit_path(user), class: 'btn btn-outline-secondary w-100 mb-3 mt-3' do %>
+    <%= link_to edit_user_path(user), class: 'btn btn-outline-secondary w-100 mb-3 mt-3' do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
   <% else %>
