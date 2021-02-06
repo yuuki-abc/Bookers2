@@ -2,8 +2,8 @@
 
 <div class="row">
     <div class="col-4">
-        <div><%= render 'books/user_info', user: @user %></div>
-        <div><%= render 'books/new_book', book: @book %></div>
+        <div><%= render 'books/user_info', user: @my_user %></div>
+        <div><%= render 'books/new_book', book: @new_book %></div>
     </div>
 
     <div class="col-8">
@@ -12,28 +12,28 @@
 
   <table class="table">
 
-  <td><%= attachment_image_tag @book_show.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
+  <td><%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
 
 
-  <div><%= link_to user_path(@book_show.user) do %>
-  <%= @book_show.user.name %>
+  <div><%= link_to user_path(@book.user) do %>
+  <%= @book.user.name %>
   <% end %></div>
   </td>
 
   <td>
-  <%= link_to book_view_path(@book_show) do %>
-  <%= @book_show.title %>
+  <%= link_to book_view_path(@book) do %>
+  <%= @book.title %>
   <% end %>
   </td>
 
   <td>
-  <%= @book_show.body %>
+  <%= @book.body %>
   </td>
 
 
-  <% if @book_show.user == current_user %>
-    <td><%= link_to 'edit', book_edit_path(@book_show), class: 'btn btn-success mr-4' %>
-    <%= link_to 'delete', book_delete_path(@book_show), class: 'btn btn-danger', method: :delete %></td>
+  <% if @book.user == current_user %>
+    <td><%= link_to 'edit', book_edit_path(@book), class: 'btn btn-success mr-4' %>
+    <%= link_to 'delete', book_delete_path(@book), class: 'btn btn-danger', method: :delete %></td>
   <% end %>
 
 </table>

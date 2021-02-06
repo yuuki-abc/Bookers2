@@ -1,10 +1,10 @@
 <!--コード整理済み-->
 <div class="row mb-5">
-    <% if @book.errors.any? %>
+    <% if @error_message.errors.any? %>
     <div id="error_explanation">
-        <h3><%= @book.errors.count %> errors prohibited this book from being saved:</h3>
+        <h3><%= @error_message.errors.count %> errors prohibited this book from being saved:</h3>
         <ul>
-            <% @book.errors.full_messages.each do |message| %>
+            <% @error_message.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
         </ul>
@@ -14,8 +14,8 @@
 
 <div class="row">
     <div class="col-4">
-        <div><%= render 'books/user_info', user: @user %></div>
-        <div><%= render 'books/new_book', book: @book %></div>
+        <div><%= render 'books/user_info', user: @my_user %></div>
+        <div><%= render 'books/new_book', book: @new_book %></div>
     </div>
 
     <div class="col-8">
