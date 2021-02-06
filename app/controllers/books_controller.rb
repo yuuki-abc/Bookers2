@@ -13,10 +13,12 @@ class BooksController < ApplicationController
 
   def user_edit
     @user = User.find(params[:id])
+    identification(@user)
   end
 
   def user_update
     user = User.find(params[:id])
+    identification(user)
     if user.update(user_params)
       redirect_to user_path(user), notice: "successful update"
     else
@@ -30,8 +32,6 @@ class BooksController < ApplicationController
   end
 
   def book_new
-    @user = User.find(current_user.id)
-
     book = Book.new(book_params)
     book.user_id = current_user.id
     if book.save
@@ -48,10 +48,12 @@ class BooksController < ApplicationController
 
   def book_edit
     @book = Book.find(params[:id])
+    identification(@book.user)
   end
 
   def book_update
     book = Book.find(params[:id])
+    identification(book.user)
     if book.update(book_params)
       redirect_to user_path(book.user.id), notice: "successful update"
     else
@@ -61,6 +63,7 @@ class BooksController < ApplicationController
 
   def book_delete
     book = Book.find(params[:id])
+    identification(book.user)
     if book.destroy
       redirect_to user_path(book.user.id), notice: "deleted successfully"
     else
@@ -76,6 +79,12 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :body)
+  end
+
+  def identification(user)
+    unless user == current_user
+      redirect_to user_path(current_user), alert: "this page cannot be edited"
+    end
   end
 
 end
