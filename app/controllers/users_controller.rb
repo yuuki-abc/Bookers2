@@ -19,7 +19,8 @@ class UsersController < ApplicationController
     if user.update(user_params)
       redirect_to user_path(user), notice: "successfully update"
     else
-      redirect_to user_path(user), alert: "error update"
+      @user = user
+      render action: :edit
     end
   end
 

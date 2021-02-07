@@ -1,9 +1,9 @@
 <div class="row mb-5">
-    <% if @error_message.errors.any? %>
+    <% if @book.errors.any? %>
     <div id="error_explanation">
-        <h3><%= @error_message.errors.count %> errors prohibited this book from being saved:</h3>
+        <h3><%= @book.errors.count %> errors prohibited this book from being saved:</h3>
         <ul>
-            <% @error_message.errors.full_messages.each do |message| %>
+            <% @book.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
         </ul>
