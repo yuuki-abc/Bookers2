@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
 
   attachment :profile_image
-  # yukikome => モデルに、画像アップ用のメソッド（attachment）を追加
+  # コメント => モデルに、画像アップ用のメソッド（attachment）を追加
 
   validates :name, :uniqueness => true, :length => {in: 2..20}
   # 重複禁止&2~20字以内

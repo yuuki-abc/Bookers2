@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
-      # yukikome => null: falseの記述は、カラムに空の値を挿入させない役割を持つ
+      # コメント => null: falseの記述は、カラムに空の値を挿入させない役割を持つ
 
       ## Recoverable
       t.string   :reset_password_token

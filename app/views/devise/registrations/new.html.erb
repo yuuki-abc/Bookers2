@@ -3,13 +3,13 @@
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 
   <%= render "devise/shared/error_messages", resource: resource %>
-  <!--yukikome => 不明ポイント resource: resourceこの記述は何？-->
+  <!--コメント => 不明ポイント resource: resourceこの記述は何？-->
 
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
-  <!--yukikome => サインアップ時に、ユーザー名を設定して貰う-->
+  <!--コメント => サインアップ時に、ユーザー名を設定して貰う-->
 
   <div class="field">
     <%= f.label :email %><br />
