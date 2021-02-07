@@ -2,25 +2,19 @@
 
 <h1 class="mt-5">New book</h1>
 
-<div class="col-8">
-
-  <div class="pt-2 pb-2 font-weight-bold">
-    <div><label for="inputTitle">Title</label></div>
-    <%= f.text_field :title, id:"inputTitle", placeholder:"本のタイトル"%>
-  </div>
-
-  <div class="pt-2 pb-2 font-weight-bold">
-    <div><label for="inputBody">Opinion</label></div>
-    <%= f.text_area :body, id:"inputBody", placeholder:"本の感想"%>
-  </div>
-
-
-  <div class="pt-2 pb-2 font-weight-bold">
-      <%= f.submit 'Create Book', class: "btn btn-success" %>
-  </div>
-
+<div class="pt-2 pb-2 font-weight-bold">
+  <div><label for="inputTitle">Title</label></div>
+  <%= f.text_field :title, id:"inputTitle", placeholder:"本のタイトル"%>
 </div>
 
-<div class="col-4"></div>
+<div class="pt-2 pb-2 font-weight-bold">
+  <div><label for="inputBody">Opinion</label></div>
+  <%= f.text_area :body, id:"inputBody", placeholder:"本の感想"%>
+</div>
+
+
+<div class="pt-2 pb-2 font-weight-bold">
+  <%= f.submit 'Create Book', class: "btn btn-success" %>
+</div>
 
 <% end %>
