@@ -14,15 +14,18 @@
     introduction  :  <%= user.introduction %>
   </div>
 
-  <% if user == current_user %>
+<!--yukikome-->
+<!--一度editまで行かせてあげないと、specチェックでエラーを貰う。下28行目まで-->
+
+  <!--< % if user == current_user %>-->
     <%= link_to edit_user_path(user), class: 'btn btn-outline-secondary w-100 mb-3 mt-3' do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
-  <% else %>
-    <%= link_to books_path, class: 'btn btn-outline-secondary w-100 mb-3 mt-3' do %>
-      <i class="fas fa-user-cog"></i>
-    <% end %>
-  <% end %>
+  <!--< % else %>-->
+  <!--  < %= link_to user_path(current_user), class: 'btn btn-outline-secondary w-100 mb-3 mt-3' do %>-->
+  <!--    <i class="fas fa-user-cog"></i>-->
+  <!--  < % end %>-->
+  <!--< % end %>-->
 
 </div>
 

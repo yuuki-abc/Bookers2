@@ -22,7 +22,11 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
-    identification(@book.user)
+    # yukikome
+    # identification(@book.user) # ←【一覧画面に遷移させないとspecチェックでエラーを貰う。下の三行とは、リダイレクト先が違うだけ】
+    unless @book.user == current_user
+      redirect_to books_path, alert: "Not authorized"
+    end
   end
 
   def update
