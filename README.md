@@ -1,24 +1,5 @@
-# README
+# 課題提出【課題3】
+【アプリケーションを完成させよう2】、の課題が入っています。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使い方
+課題がBookersという名前で入っています。
