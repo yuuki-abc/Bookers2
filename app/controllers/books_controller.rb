@@ -12,7 +12,7 @@ class BooksController < ApplicationController
       redirect_to book_path(book), notice: "successfully creation"
     else
       @book = book
-      render action: :books
+      render action: :index
     end
   end
 
