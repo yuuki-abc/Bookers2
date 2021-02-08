@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  def books
+  def index
     @book = Book.new
     # error表示の為だけの関数
   end
